@@ -2,8 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { format } from "date-fns";
 import { MdOutlineBookmarkAdd } from "react-icons/md";
-import { AiOutlineMinusCircle } from "react-icons/ai";
-import { FiMoreHorizontal } from "react-icons/fi";
 import { getAllBlogs } from "@/prisma/blogs";
 import Image from "next/image";
 
@@ -59,19 +57,11 @@ const BlogsPage = ({ blogs }) => {
                       >
                         {blog.tags.split(",").at(0)}
                       </Link>
-
-                      <span>6 min read</span>
                     </div>
                     <div className="text-xl text-gray-500 flex items-center gap-5">
                       <button>
                         <MdOutlineBookmarkAdd />
                       </button>
-                      <button>
-                        <AiOutlineMinusCircle />
-                      </button>
-                      <Link href="/">
-                        <FiMoreHorizontal />
-                      </Link>
                     </div>
                   </div>
                 </div>
