@@ -4,7 +4,6 @@ import { MdOutlineBookmarkAdd } from "react-icons/md";
 import Image from "next/image";
 
 const Blog = ({ blog }) => {
-  console.log(blog.tags);
   return (
     <div
       key={blog.id}
