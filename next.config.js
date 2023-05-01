@@ -7,6 +7,7 @@ const nextConfig = {
       "randomuser.me",
       "techcrunch.com",
       "i.pinimg.com",
+      "lh3.googleusercontent.com",
     ],
   },
 };
