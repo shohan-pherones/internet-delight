@@ -17,7 +17,7 @@ const Blog = ({ blog }) => {
               alt={blog.authorName}
               width={40}
               height={40}
-              className="rounded-full"
+              className="rounded-full w-auto h-auto"
             />
             <div className="flex items-center gap-5">
               <Link
@@ -64,6 +64,7 @@ const Blog = ({ blog }) => {
           alt={blog.title}
           width={400}
           height={400}
+          className="w-auto h-auto"
         />
       </div>
     </div>
