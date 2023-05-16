@@ -8,6 +8,7 @@ const nextConfig = {
       "techcrunch.com",
       "i.pinimg.com",
       "lh3.googleusercontent.com",
+      "images.pexels.com"
     ],
   },
 };
