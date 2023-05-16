@@ -138,7 +138,7 @@ const CreateBlogPage = () => {
 
         <div className="submit py-3 w-full rounded-xl bg-black mt-7 text-center overflow-hidden">
           <button type="submit" className="text-white font-medium">
-            Send
+            Create Blog
           </button>
         </div>
       </form>
