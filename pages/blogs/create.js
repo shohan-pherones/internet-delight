@@ -8,19 +8,19 @@ const CreateBlogPage = () => {
     handleSubmit,
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
 
     reset();
   };
 
   return (
-    <div className="container mx-auto py-20 min-h-screen bg-slate-100">
+    <div className="container mx-auto py-20 min-h-screen">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="form mx-auto max-w-screen-md flex flex-col items-center gap-5 text-lg bg-white shadow-lg rounded-xl py-5 px-28"
+        className="form mx-auto max-w-screen-md flex flex-col items-center gap-5 text-lg "
       >
-        <h2 className="text-3xl text-center font-medium mb-5 py-10">
+        <h2 className="text-3xl text-center font-medium mb-5 py-4">
           Create Blog
         </h2>
 
@@ -136,7 +136,7 @@ const CreateBlogPage = () => {
           />
         </div>
 
-        <div className="submit py-3 w-full rounded-xl bg-black mt-7 text-center overflow-hidden">
+        <div className="submit py-3 w-full rounded-xl bg-black mt-14 text-center overflow-hidden">
           <button type="submit" className="text-white font-medium">
             Create Blog
           </button>
