@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { format } from "date-fns";
 const Hero = ({ blog, featured }) => {
-  console.log(blog.tag);
   return (
     <div className="hero-section pt-10">
       <div className="grid md:grid-cols-12 grid-cols-1 gap-5">
@@ -19,7 +18,7 @@ const Hero = ({ blog, featured }) => {
           <div className="content-info flex flex-col gap-5 font-semibold py-2 px-6">
             <span className="post-cta">
               <Link
-                href={`/tags/${blog.tags?.split(",")[0].slice(1)}`}
+                href={`/category/${blog.tags?.split(",")[0].slice(1)}`}
                 className="uppercase text-xs text-sky-500 font-semibold  tracking-[2px]"
               >
                 {blog.tags?.split(",")[0].replace("#", "")}
@@ -34,8 +33,8 @@ const Hero = ({ blog, featured }) => {
                 {format(new Date(blog.createdAt), "MMMM dd, yyyy")}
               </span>
             </div>
-            <p className="des line-clamp-2 lg:line-clamp-3 font-normal">
-              {blog.fullBody}
+            <p className="font-normal">
+              {blog.body}
             </p>
             <Link
               href={`blogs/${blog.id}`}
@@ -46,9 +45,9 @@ const Hero = ({ blog, featured }) => {
           </div>
         </div>
         <div className="featured-block border-b md:border-0 pb-5 md:col-span-4 flex flex-col gap-5">
-          <h3 className="featured-title text-4xl pb-2 border-b">Featured</h3>
+          <h3 className="featured-title uppercase text-2xl pb-2 border-b">Featured</h3>
           {featured.map((blog) => (
-            <div className="featured-info flex flex-col gap-5">
+            <div key={blog.id} className="featured-info flex flex-col gap-5">
               <span className="post-cta">
                 <Link
                   href={`/tags/${blog.tags?.split(",")[0].slice(1)}`}

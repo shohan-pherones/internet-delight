@@ -32,18 +32,18 @@ const Blog = ({ blog }) => {
             </div>
           </div>
         </div>
-        <Link href={`blogs/${blog.id}`}>
+        <Link href={`/blogs/${blog.id}`}>
           <h1 className="text-xl lg:text-4xl font-semibold hover:underline">
             {blog.title}
           </h1>
         </Link>
-        <p className="line-clamp-2 lg:line-clamp-3">{blog.body}</p>
+        <p>{blog.body}</p>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             {blog.tags?.split(", ").map((tag, i) => (
               <Link
                 key={i}
-                href={`/tags/${tag.slice(1)}`}
+                href={`/category/${tag.slice(1)}`}
                 className="text-sky-500 hover:underline"
               >
                 {tag}

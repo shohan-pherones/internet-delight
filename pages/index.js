@@ -15,7 +15,7 @@ export default HomePage;
 
 export const getServerSideProps = async () => {
   const blogs = await getAllBlogs();
-  const getBlogs = blogs.map((blog) => ({
+  const getBlogs = blogs.map((blog) => ( {
     ...blog,
     createdAt: blog.createdAt.toString(),
     updatedAt: blog.updatedAt.toString(),
