@@ -1,6 +1,9 @@
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 const CreateBlogPage = () => {
+  const router = useRouter();
   const {
     register,
     formState: { errors },
@@ -9,16 +12,20 @@ const CreateBlogPage = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
-
-    reset();
+    try {
+      const res = await axios.post("/api/blogs", data);
+      reset();
+      const newBlog = await res.data.id;
+      await router.replace(`/blogs/${newBlog}`);
+    } catch (error) {
+      console.error(error);
+    }
   };
-
   return (
     <div className="container mx-auto py-20 min-h-screen">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="form mx-auto max-w-screen-md flex flex-col items-center gap-5 text-lg "
+        className="form mx-auto max-w-screen-sm flex flex-col items-center gap-5 text-lg "
       >
         <h2 className="text-3xl text-center font-medium mb-5 py-4">
           Create Blog
@@ -46,20 +53,20 @@ const CreateBlogPage = () => {
             {...register("body", { required: true })}
             placeholder="Updated to note that the  Microsoft..."
             className={`body border border-gray-300 focus:border-gray-600 py-3
-            px-5 rounded-xl outline-none duration-300 
+            px-5 rounded-xl outline-none duration-300
               ${errors.body?.type === "required" && "border-rose-500"}`}
           />
         </div>
 
         <div className="form-control flex flex-col w-full gap-2">
-          <label htmlFor="fullbody" className="font-medium">
+          <label htmlFor="fullBody" className="font-medium">
             Full Body
           </label>
           <textarea
-            {...register("fullbody", { required: true })}
+            {...register("fullBody", { required: true })}
             placeholder="Meditation is an ancient practice that..."
-            className={`fullbody border border-gray-300  focus:border-gray-600 py-3 px-5 rounded-xl outline-none duration-300 ${
-              errors.fullbody?.type === "required" && "border-rose-500"
+            className={`fullBody border border-gray-300  focus:border-gray-600 py-3 px-5 rounded-xl outline-none duration-300 ${
+              errors.fullBody?.type === "required" && "border-rose-500"
             }`}
           />
         </div>
@@ -69,7 +76,7 @@ const CreateBlogPage = () => {
             Cover Url
           </label>
           <input
-            type="cover"
+            type="text"
             {...register("cover", { required: true })}
             placeholder="https://images.pexels.com/photos/..."
             className={`cover border border-gray-300 focus:border-gray-600 py-3 px-5 rounded-xl outline-none duration-300 ${
@@ -83,7 +90,7 @@ const CreateBlogPage = () => {
             Author Image Url
           </label>
           <input
-            type="authorImage"
+            type="text"
             {...register("authorImage", { required: true })}
             placeholder="https://randomuser.me/api/portraits...."
             className={`author-image border border-gray-300 focus:border-gray-600 py-3 px-5 rounded-xl outline-none duration-300 ${
@@ -98,10 +105,10 @@ const CreateBlogPage = () => {
           </label>
           <input
             type="text"
-            {...register("authorname", { required: true })}
+            {...register("authorName", { required: true })}
             placeholder="Samantha Williams"
             className={`author-name border border-gray-300 focus:border-gray-600 py-3 px-5 rounded-xl outline-none duration-300 ${
-              errors.authorname?.type === "required" && "border-rose-500"
+              errors.authorName?.type === "required" && "border-rose-500"
             }`}
           />
         </div>
@@ -127,7 +134,7 @@ const CreateBlogPage = () => {
             Tags
           </label>
           <input
-            type="tags"
+            type="text"
             {...register("tags", { required: true })}
             placeholder="#outdoors, #nature, #adventure"
             className={`tage border border-gray-300 focus:border-gray-600 py-3 px-5 rounded-xl outline-none duration-300 ${

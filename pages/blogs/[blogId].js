@@ -1,5 +1,6 @@
 import { getABlog } from "@/prisma/blogs";
 import { format } from "date-fns";
+
 import Image from "next/image";
 
 const Post = ({ blog }) => {

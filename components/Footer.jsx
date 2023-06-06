@@ -96,7 +96,7 @@ const Footer = () => {
 
         <div className="justify-center">
           <div className="lg:w-full md:w-2/3 border-t border-gray-700">
-            <p className="text-center text-gray-400 mt-8">
+            <p className="text-center text-gray-800 text-lg mt-8">
               &copy; {new Date().getFullYear()} Internet delight. All rights
               reserved.
             </p>
