@@ -7,6 +7,7 @@ export default async function handler(req, res) {
       return res.status(200).json(blogs);
     } else if (req.method === "POST") {
       const newBlogData = req.body;
+      console.log(newBlogData);
       const newBlog = await createBlog(newBlogData);
       return res.status(201).json(newBlog);
     } else {
