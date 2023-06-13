@@ -9,6 +9,7 @@ export default function App({ Component, pageProps, session }) {
       <SessionProvider session={session}>
         <Navbar />
         <Component {...pageProps} />
+        <feComposite />
         <Footer />
       </SessionProvider>
     </>

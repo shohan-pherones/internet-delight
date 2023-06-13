@@ -40,11 +40,28 @@ const Navbar = () => {
           }`}
         >
           <li>
-            <Link href="/" className="hover:text-sky-500 transition duration-500 ease-in-out">Home
+            <Link
+              href="/"
+              className="hover:text-sky-500 transition duration-500 ease-in-out"
+            >
+              Home
             </Link>
           </li>
           <li>
-            <Link href="/blogs" className="hover:text-sky-500 transition duration-500 ease-in-out">Blogs</Link>
+            <Link
+              href="/savedblogs"
+              className="hover:text-sky-500 transition duration-500 ease-in-out"
+            >
+              Save Blogs
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/blogs"
+              className="hover:text-sky-500 transition duration-500 ease-in-out"
+            >
+              Blogs
+            </Link>
           </li>
           <li>
             <button

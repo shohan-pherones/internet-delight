@@ -2,8 +2,24 @@ import Link from "next/link";
 import { format } from "date-fns";
 import { MdOutlineBookmarkAdd } from "react-icons/md";
 import Image from "next/image";
+import { useState } from "react";
 
 const Blog = ({ blog }) => {
+  const [issaved, setissaved] = useState(false);
+
+  const handleClick = (data) => {
+    const storedProducts = localStorage.getItem("savedBlogs");
+
+    let products = [];
+    if (storedProducts) {
+      products = JSON.parse(storedProducts);
+    }
+
+    products.push(data);
+
+    localStorage.setItem("savedBlogs", JSON.stringify(products));
+    setissaved(true);
+  };
   return (
     <div
       key={blog.id}
@@ -51,9 +67,13 @@ const Blog = ({ blog }) => {
             ))}
           </div>
           <div className="text-xl text-gray-500 hover:text-sky-500 transition">
-            <button>
-              <MdOutlineBookmarkAdd />
-            </button>
+            {issaved ? (
+              <button>bookmarked</button>
+            ) : (
+              <button onClick={() => handleClick(blog)}>
+                <MdOutlineBookmarkAdd />
+              </button>
+            )}
           </div>
         </div>
       </div>
